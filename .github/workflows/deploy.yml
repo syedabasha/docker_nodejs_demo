@@ -41,4 +41,5 @@ jobs:
       run: |
         docker pull public.ecr.aws/eks/aws-load-balancer-controller:v2.5.4
         docker tag public.ecr.aws/eks/aws-load-balancer-controller:v2.5.4 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker images
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
