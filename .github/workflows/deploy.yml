@@ -19,11 +19,11 @@ jobs:
     steps:
 
     - name: Git branch name
-        id: git-branch-name
-        uses: EthanSK/git-branch-name-action@v1
-        
+      id: git-branch-name
+      uses: EthanSK/git-branch-name-action@v1
+
     - name: Echo the branch name
-        run: echo "Branch name ${GIT_BRANCH_NAME}"
+      run: echo "Branch name ${GIT_BRANCH_NAME}"
 
     - name: Check out code
       uses: actions/checkout@v2
