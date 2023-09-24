@@ -54,7 +54,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR to Snadbox
-      if: ${{ steps.directories.outputs.branchname == 'main' }}
+      if: ${{ steps.directories.outputs.branchname == 'test' }}
       env:
         ECR_REGISTRY: "726591409711.dkr.ecr.us-east-1.amazonaws.com"
         ECR_REPOSITORY: nodejs_demo_image
@@ -64,7 +64,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
     - name: Build, tag, and push image to Amazon ECR to dev
-      if: ${{ steps.directories.outputs.branchname == 'test' }}
+      if: ${{ steps.directories.outputs.branchname == 'main' }}
       env:
         ECR_REGISTRY: "726591409711.dkr.ecr.us-east-1.amazonaws.com"
         ECR_REPOSITORY: nodejs_demo_image
