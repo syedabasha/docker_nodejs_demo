@@ -35,9 +35,13 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region: us-east-1    
+      if: $GIT_BRANCH_NAME == 'test' 
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: us-east-1
-      run: |
-      echo "The branch name is:==> $GIT_BRANCH_NAME"
 
     - name: Login to Amazon ECR
       id: login-ecr
